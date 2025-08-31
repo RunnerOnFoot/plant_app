@@ -34,7 +34,7 @@ class _CameraPageState extends State<CameraPage> {
             },
           ),
           QRScannerOverlay(
-            overlayColour: Colors.black.withOpacity(0.5),
+            overlayColour: Colors.black.withAlpha(128),
           ),
           Positioned(
             top: 20,
@@ -49,7 +49,7 @@ class _CameraPageState extends State<CameraPage> {
                   width: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: Constants.primary.withOpacity(0.13),
+                    color: Constants.primary.withValues(alpha: 0.13),
                   ),
                   child: IconButton(
                     onPressed: () {
@@ -65,31 +65,50 @@ class _CameraPageState extends State<CameraPage> {
                   width: 40,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
-                    color: Constants.primary.withOpacity(0.13),
+                    color: Constants.primary.withValues(alpha: 0.13),
                   ),
-                  child: IconButton(
-                    onPressed: () => mobileScannerController.toggleTorch(),
-                    icon: ValueListenableBuilder(
-                      valueListenable: mobileScannerController.torchState,
-                      builder: (
-                        BuildContext context,
-                        TorchState state,
-                        Widget? child,
-                      ) {
-                        switch (state) {
-                          case TorchState.off:
-                            return const Icon(
+                  child: ValueListenableBuilder<MobileScannerState>(
+                    valueListenable: mobileScannerController,
+                    builder: (
+                      BuildContext context,
+                      MobileScannerState state,
+                      Widget? child,
+                    ) {
+                      if (!state.isInitialized || !state.isRunning) {
+                        return const SizedBox.shrink();
+                      }
+                      switch (state.torchState) {
+                        case TorchState.off:
+                          return IconButton(
+                            onPressed: () => mobileScannerController.toggleTorch(),
+                            icon: const Icon(
                               Icons.flash_off,
                               color: Colors.white,
-                            );
-                          case TorchState.on:
-                            return const Icon(
+                            ),
+                          );
+                        case TorchState.on:
+                          return IconButton(
+                            onPressed: () => mobileScannerController.toggleTorch(),
+                            icon: const Icon(
                               Icons.flash_on,
                               color: Colors.yellow,
-                            );
-                        }
-                      },
-                    ),
+                            ),
+                          );
+                        case TorchState.auto:
+                          return IconButton(
+                            onPressed: () => mobileScannerController.toggleTorch(),
+                            icon: const Icon(
+                              Icons.flash_auto,
+                              color: Colors.white,
+                            ),
+                          );
+                        case TorchState.unavailable:
+                          return const Icon(
+                            Icons.no_flash,
+                            color: Colors.grey,
+                          );
+                      }
+                    },
                   ),
                 ),
               ],

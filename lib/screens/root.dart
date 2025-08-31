@@ -17,7 +17,7 @@ class RootPage extends StatefulWidget {
     required this.initialPage,
   });
 
-  int initialPage = 0;
+  final int initialPage;
 
   @override
   State<RootPage> createState() => _RootPageState();
@@ -26,6 +26,8 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
   List<Plant> favorites = [];
   List<Plant> myCart = [];
+
+  late int _currentIndex;
 
   List<Widget> pages() {
     return [
@@ -52,6 +54,7 @@ class _RootPageState extends State<RootPage> {
 
   @override
   void initState() {
+    _currentIndex = widget.initialPage;
     setState(() {
       final List<Plant> favoritedsPlant = Plant.getFavoritedPlants();
       final List<Plant> addToCartPlant = Plant.addedToCartPlants();
@@ -65,7 +68,7 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: widget.initialPage == 2
+      appBar: _currentIndex == 2
           ? null
           : AppBar(
               automaticallyImplyLeading: false,
@@ -82,7 +85,7 @@ class _RootPageState extends State<RootPage> {
                       size: 30,
                     ),
                     Text(
-                      appBarTitle[widget.initialPage],
+                      appBarTitle[_currentIndex],
                       style: TextStyle(
                         color: Constants.blackColor,
                         fontFamily: Constants.vazirFont,
@@ -94,7 +97,7 @@ class _RootPageState extends State<RootPage> {
               ),
             ),
       body: IndexedStack(
-        index: widget.initialPage,
+        index: _currentIndex,
         children: pages(),
       ),
       floatingActionButton: FloatingActionButton(
@@ -121,10 +124,10 @@ class _RootPageState extends State<RootPage> {
         gapLocation: GapLocation.center,
         notchSmoothness: NotchSmoothness.smoothEdge,
         icons: iconList,
-        activeIndex: widget.initialPage,
+        activeIndex: _currentIndex,
         onTap: (int index) {
           setState(() {
-            widget.initialPage = index;
+            _currentIndex = index;
             final List<Plant> favoritedsPlant = Plant.getFavoritedPlants();
             final List<Plant> addToCartPlant = Plant.addedToCartPlants();
 
