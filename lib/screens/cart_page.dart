@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:planet_app/widgets/extension.dart';
 
 import '../constants/constants.dart';
-import '../models/plant.dart';
+import 'package:planet_app/models/plant.dart';
 
 import '../widgets/plant_widget.dart';
 

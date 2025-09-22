@@ -44,7 +44,7 @@ class _ProfilePageState extends State<ProfilePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  'پرهام بحرکاظمی',
+                  'پارسا بابازاده',
                   style: TextStyle(
                     color: Constants.blackColor,
                     fontSize: 20,
@@ -62,7 +62,7 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(height: 10),
             //profile email
             Text(
-              'damon.bahrekazemi@gmail.com',
+              'parsabbz@gmail.com',
               style: TextStyle(
                 color: Constants.blackColor.withOpacity(0.4),
                 fontSize: 15,

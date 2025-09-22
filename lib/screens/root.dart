@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-
 import '../constants/constants.dart';
-import '../models/plant.dart';
+import 'package:planet_app/models/plant.dart';
 import 'scan_page.dart';
 import 'home_page.dart';
 import 'profile.dart';

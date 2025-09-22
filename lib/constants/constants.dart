@@ -6,8 +6,8 @@ class Constants {
 
   static const String titleOne = 'گیاهان را بهتر از قبل درک کن';
   static const String descriptionOne =
-      'در مورد نکهداری گل و گیاهان اطلاعات کسب کن';
-  static const String titleTwo = 'با کیاهان جدید آشنا شو ';
+      'در مورد نگهداری گل و گیاهان اطلاعات کسب کن';
+  static const String titleTwo = 'با گیاهان جدید آشنا شو ';
   static const String descriptionTwo =
       'رز مشکی یا گل رز دوست داری ؟ اینجا میتونی پیداش کنی';
   static const String titleThree = 'با یک گل بهار نمیشود. گل بکار';

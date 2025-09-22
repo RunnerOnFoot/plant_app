@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.only(right: 5),
-                          hintText: 'جستو‌جو...',
+                          hintText: 'جستجو...',
                           hintTextDirection: TextDirection.rtl,
                           border: InputBorder.none,
                           focusedBorder: InputBorder.none,

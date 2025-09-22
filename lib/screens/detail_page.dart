@@ -3,7 +3,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:planet_app/constants/constants.dart';
 import 'package:planet_app/screens/root.dart';
 import '../widgets/extension.dart';
-import '../models/plant.dart';
+import 'package:planet_app/models/plant.dart';
 import '../widgets/get_alert_dialog.dart';
 import '../widgets/plant_feature.dart';
 
@@ -97,7 +97,7 @@ class _DetailPageState extends State<DetailPage> {
                       top: 10,
                       right: 10,
                       child: SizedBox(
-                        height: 200,
+                        height: 207,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.end,
@@ -107,14 +107,14 @@ class _DetailPageState extends State<DetailPage> {
                               plantFeature: plantList[widget.plantId].size,
                             ),
                             PlantFeature(
-                              title: 'رطوبط هوا',
+                              title: 'رطوبت هوا',
                               plantFeature: plantList[widget.plantId]
                                   .humidity
                                   .toString()
                                   .farsiNumber,
                             ),
                             PlantFeature(
-                              title: 'دمای نکهداری',
+                              title: 'دمای نگهداری',
                               plantFeature: plantList[widget.plantId]
                                   .temperature
                                   .farsiNumber,
@@ -283,6 +283,7 @@ class _DetailPageState extends State<DetailPage> {
                             'افزودن به سبد خرید',
                             style: TextStyle(
                               fontFamily: Constants.vazirFont,
+                              color: Colors.white,
                             ),
                           ),
                         ),

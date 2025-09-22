@@ -3,7 +3,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:planet_app/widgets/extension.dart';
 
 import '../constants/constants.dart';
-import '../models/plant.dart';
+import 'package:planet_app/models/plant.dart';
 import '../screens/detail_page.dart';
 
 class NewPlantWidget extends StatelessWidget {

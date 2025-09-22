@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:planet_app/constants/constants.dart';
 
-import '../models/plant.dart';
+import 'package:planet_app/models/plant.dart';
 import '../widgets/plant_widget.dart';
 
 class FavoritePage extends StatefulWidget {
